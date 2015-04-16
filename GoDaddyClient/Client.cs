@@ -8,16 +8,41 @@ using GoDaddyClient.ServiceReference;
 
 namespace GoDaddyClient
 {
-    class Client
+
+  
+    class run
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            ChatInterfaceClient client = new ChatInterfaceClient();
+
+            CallBackMethods callback = new CallBackMethods();
+
+
+
+            ServiceReference.InterfaceServerChatServiceClient client = 
+                new InterfaceServerChatServiceClient(new InstanceContext(callback));
 
             User u = new User();
             u.name = "Arun";
-            Console.Write(client.Login(u));
+            Console.Write(client.Register(u));
             Console.Read();
         }
+
+        //** CALL BACK METHODS **//
+
+        class CallBackMethods : InterfaceServerChatServiceCallback
+        {
+
+            public void RecievMessage(String message)
+            {
+                Console.Write(message);
+            }
+
+        }
+
+
+
+
+
     }
 }

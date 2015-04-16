@@ -53,14 +53,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Service References\ServiceReference\ChatService.wsdl" />
-    <None Include="Service References\ServiceReference\GoDaddy.xsd">
+    <None Include="Service References\ServiceReference\ChatService1.wsdl" />
+    <None Include="Service References\ServiceReference\GoDaddy3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference\GoDaddy1.xsd">
+    <None Include="Service References\ServiceReference\GoDaddy31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference\GoDaddy2.xsd">
+    <None Include="Service References\ServiceReference\GoDaddy32.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -69,9 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServiceReference\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReference\GoDaddy.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ServiceReference\configuration91.svcinfo" />
@@ -84,6 +81,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference\GoDaddy1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

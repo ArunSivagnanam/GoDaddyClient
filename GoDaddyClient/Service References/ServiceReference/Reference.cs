@@ -59,47 +59,55 @@ namespace GoDaddyClient.ServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IChatInterface")]
-    public interface IChatInterface {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.InterfaceServerChatService", CallbackContract=typeof(GoDaddyClient.ServiceReference.InterfaceServerChatServiceCallback))]
+    public interface InterfaceServerChatService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatInterface/Register", ReplyAction="http://tempuri.org/IChatInterface/RegisterResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/Register", ReplyAction="http://tempuri.org/InterfaceServerChatService/RegisterResponse")]
         string Register(GoDaddyClient.ServiceReference.User username);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatInterface/Register", ReplyAction="http://tempuri.org/IChatInterface/RegisterResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/Register", ReplyAction="http://tempuri.org/InterfaceServerChatService/RegisterResponse")]
         System.Threading.Tasks.Task<string> RegisterAsync(GoDaddyClient.ServiceReference.User username);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatInterface/Login", ReplyAction="http://tempuri.org/IChatInterface/LoginResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/Login", ReplyAction="http://tempuri.org/InterfaceServerChatService/LoginResponse")]
         string Login(GoDaddyClient.ServiceReference.User username);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IChatInterface/Login", ReplyAction="http://tempuri.org/IChatInterface/LoginResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/Login", ReplyAction="http://tempuri.org/InterfaceServerChatService/LoginResponse")]
         System.Threading.Tasks.Task<string> LoginAsync(GoDaddyClient.ServiceReference.User username);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IChatInterfaceChannel : GoDaddyClient.ServiceReference.IChatInterface, System.ServiceModel.IClientChannel {
+    public interface InterfaceServerChatServiceCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/RecievMessage", ReplyAction="http://tempuri.org/InterfaceServerChatService/RecievMessageResponse")]
+        void RecievMessage(string message);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface InterfaceServerChatServiceChannel : GoDaddyClient.ServiceReference.InterfaceServerChatService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ChatInterfaceClient : System.ServiceModel.ClientBase<GoDaddyClient.ServiceReference.IChatInterface>, GoDaddyClient.ServiceReference.IChatInterface {
+    public partial class InterfaceServerChatServiceClient : System.ServiceModel.DuplexClientBase<GoDaddyClient.ServiceReference.InterfaceServerChatService>, GoDaddyClient.ServiceReference.InterfaceServerChatService {
         
-        public ChatInterfaceClient() {
+        public InterfaceServerChatServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public ChatInterfaceClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public InterfaceServerChatServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public ChatInterfaceClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public InterfaceServerChatServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ChatInterfaceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public InterfaceServerChatServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public ChatInterfaceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public InterfaceServerChatServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
         public string Register(GoDaddyClient.ServiceReference.User username) {

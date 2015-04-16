@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8090/GoDaddy" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8080/GoDaddy" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="GoDaddy.xsd" MetadataType="Schema" ID="5800c792-2480-484a-bccc-f93a757a711b" SourceId="1" SourceUrl="http://localhost:8090/GoDaddy?xsd=xsd0" />
-    <MetadataFile FileName="GoDaddy1.xsd" MetadataType="Schema" ID="e50554c6-5dfd-402e-ad26-18767f091c76" SourceId="1" SourceUrl="http://localhost:8090/GoDaddy?xsd=xsd2" />
-    <MetadataFile FileName="ChatService.wsdl" MetadataType="Wsdl" ID="4551b3b2-d0e1-4172-a848-a79571e0d4b7" SourceId="1" SourceUrl="http://localhost:8090/GoDaddy?wsdl" />
-    <MetadataFile FileName="GoDaddy.disco" MetadataType="Disco" ID="c160b192-8bf1-4ec7-a2da-190b1287e527" SourceId="1" SourceUrl="http://localhost:8090/GoDaddy?disco" />
-    <MetadataFile FileName="GoDaddy2.xsd" MetadataType="Schema" ID="007998e4-7ff0-4336-843e-47789fa7b816" SourceId="1" SourceUrl="http://localhost:8090/GoDaddy?xsd=xsd1" />
+    <MetadataFile FileName="GoDaddy3.xsd" MetadataType="Schema" ID="c174bb7e-3728-40a8-91ab-3685621681fa" SourceId="1" SourceUrl="http://localhost:8080/GoDaddy?xsd=xsd2" />
+    <MetadataFile FileName="ChatService1.wsdl" MetadataType="Wsdl" ID="f34fa265-5ad2-4e0b-92ff-58897d5bcdc4" SourceId="1" SourceUrl="http://localhost:8080/GoDaddy?wsdl" />
+    <MetadataFile FileName="GoDaddy31.xsd" MetadataType="Schema" ID="66e00498-24cf-4294-95c9-4b8e286bffae" SourceId="1" SourceUrl="http://localhost:8080/GoDaddy?xsd=xsd0" />
+    <MetadataFile FileName="GoDaddy32.xsd" MetadataType="Schema" ID="6fa4f4b8-1532-4d00-8fb8-77ddd2de3c9c" SourceId="1" SourceUrl="http://localhost:8080/GoDaddy?xsd=xsd1" />
+    <MetadataFile FileName="GoDaddy1.disco" MetadataType="Disco" ID="ef01a17a-f238-4f2d-87ef-8831a5d1c02d" SourceId="1" SourceUrl="http://localhost:8080/GoDaddy?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
