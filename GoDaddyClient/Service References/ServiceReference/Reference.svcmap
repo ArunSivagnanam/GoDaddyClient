@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0824618e-8563-458c-965b-4ebd23220f96" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8090/GoDaddy" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="GoDaddy.xsd" MetadataType="Schema" ID="5800c792-2480-484a-bccc-f93a757a711b" SourceId="1" SourceUrl="http://localhost:8090/GoDaddy?xsd=xsd0" />
+    <MetadataFile FileName="GoDaddy1.xsd" MetadataType="Schema" ID="e50554c6-5dfd-402e-ad26-18767f091c76" SourceId="1" SourceUrl="http://localhost:8090/GoDaddy?xsd=xsd2" />
+    <MetadataFile FileName="ChatService.wsdl" MetadataType="Wsdl" ID="4551b3b2-d0e1-4172-a848-a79571e0d4b7" SourceId="1" SourceUrl="http://localhost:8090/GoDaddy?wsdl" />
+    <MetadataFile FileName="GoDaddy.disco" MetadataType="Disco" ID="c160b192-8bf1-4ec7-a2da-190b1287e527" SourceId="1" SourceUrl="http://localhost:8090/GoDaddy?disco" />
+    <MetadataFile FileName="GoDaddy2.xsd" MetadataType="Schema" ID="007998e4-7ff0-4336-843e-47789fa7b816" SourceId="1" SourceUrl="http://localhost:8090/GoDaddy?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
