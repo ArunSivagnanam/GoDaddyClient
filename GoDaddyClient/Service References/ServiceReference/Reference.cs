@@ -46,6 +46,7 @@ namespace GoDaddyClient.ServiceReference {
                     this.RaisePropertyChanged("name");
                 }
             }
+            
         }
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;

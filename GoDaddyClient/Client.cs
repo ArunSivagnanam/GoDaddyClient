@@ -9,40 +9,47 @@ using GoDaddyClient.ServiceReference;
 namespace GoDaddyClient
 {
 
-  
-    class run
+    class Client : InterfaceServerChatServiceCallback
     {
-        public static void Main(string[] args)
+
+        ServiceReference.InterfaceServerChatServiceClient serverProxy;
+
+        User currentUser;
+
+
+        public Client()
         {
-
-            CallBackMethods callback = new CallBackMethods();
-
-
-
-            ServiceReference.InterfaceServerChatServiceClient client = 
-                new InterfaceServerChatServiceClient(new InstanceContext(callback));
-
-            User u = new User();
-            u.name = "Arun";
-            Console.Write(client.Register(u));
-            Console.Read();
+            serverProxy = new InterfaceServerChatServiceClient(new InstanceContext(this));
         }
 
+        public Boolean login(String username, String password);
+
+        public Boolean logOut();
+       
+
+        public Boolean register(User user);
+        
+
+        public void sendMessage(String username, String message);
+
+        public String test()
+        {
+            User u = new User();
+            u.name = "magic mike";
+            return serverProxy.Register(u);
+        }
+         
         //** CALL BACK METHODS **//
 
-        class CallBackMethods : InterfaceServerChatServiceCallback
+        public void RecievMessage(String message)
         {
-
-            public void RecievMessage(String message)
-            {
                 Console.Write(message);
-            }
-
         }
 
-
-
-
+        public void RecievLoggedInUsers(String message)
+        {
+                Console.Write(message);
+        }
 
     }
 }
