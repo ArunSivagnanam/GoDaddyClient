@@ -22,21 +22,36 @@ namespace GoDaddyClient
             serverProxy = new InterfaceServerChatServiceClient(new InstanceContext(this));
         }
 
-        public Boolean login(String username, String password);
+        public Boolean login(String username, String password)
+        {
+            return false;
+        }
 
-        public Boolean logOut();
-       
+        public Boolean logOut()
+        {
+            return false;
+        }
 
-        public Boolean register(User user);
-        
 
-        public void sendMessage(String username, String message);
+        public string register(User user)
+        {
+            String status = serverProxy.Register(user);
+
+            return status;
+        }
+
+
+        public void sendMessage(String username, String message)
+        {
+
+        }
 
         public String test()
         {
-            User u = new User();
-            u.name = "magic mike";
-            return serverProxy.Register(u);
+           // User u = new User();
+           // u.userName = "magic mike";
+           // return serverProxy.Register(u);
+            return null;
         }
          
         //** CALL BACK METHODS **//
@@ -46,10 +61,7 @@ namespace GoDaddyClient
                 Console.Write(message);
         }
 
-        public void RecievLoggedInUsers(String message)
-        {
-                Console.Write(message);
-        }
+        
 
     }
 }

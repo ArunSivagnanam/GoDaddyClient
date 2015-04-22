@@ -27,6 +27,36 @@
   <wsdl:message name="InterfaceServerChatService_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="InterfaceServerChatService_LogOut_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogOut" />
+  </wsdl:message>
+  <wsdl:message name="InterfaceServerChatService_LogOut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="InterfaceServerChatService_SendMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="InterfaceServerChatService_SendMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="InterfaceServerChatService_AddFriend_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFriend" />
+  </wsdl:message>
+  <wsdl:message name="InterfaceServerChatService_AddFriend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFriendResponse" />
+  </wsdl:message>
+  <wsdl:message name="InterfaceServerChatService_RemoveFriend_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveFriend" />
+  </wsdl:message>
+  <wsdl:message name="InterfaceServerChatService_RemoveFriend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveFriendResponse" />
+  </wsdl:message>
+  <wsdl:message name="InterfaceServerChatService_GetMessageHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageHistory" />
+  </wsdl:message>
+  <wsdl:message name="InterfaceServerChatService_GetMessageHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageHistoryResponse" />
+  </wsdl:message>
   <wsdl:message name="InterfaceServerChatService_RecievMessage_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:RecievMessage" />
   </wsdl:message>
@@ -41,6 +71,26 @@
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/Login" message="tns:InterfaceServerChatService_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/LoginResponse" message="tns:InterfaceServerChatService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/LogOut" message="tns:InterfaceServerChatService_LogOut_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/LogOutResponse" message="tns:InterfaceServerChatService_LogOut_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/SendMessage" message="tns:InterfaceServerChatService_SendMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/SendMessageResponse" message="tns:InterfaceServerChatService_SendMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFriend">
+      <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/AddFriend" message="tns:InterfaceServerChatService_AddFriend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/AddFriendResponse" message="tns:InterfaceServerChatService_AddFriend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFriend">
+      <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/RemoveFriend" message="tns:InterfaceServerChatService_RemoveFriend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/RemoveFriendResponse" message="tns:InterfaceServerChatService_RemoveFriend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/GetMessageHistory" message="tns:InterfaceServerChatService_GetMessageHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/GetMessageHistoryResponse" message="tns:InterfaceServerChatService_GetMessageHistory_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RecievMessage">
       <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/RecievMessage" message="tns:InterfaceServerChatService_RecievMessage_OutputCallbackMessage" />
@@ -61,6 +111,51 @@
     </wsdl:operation>
     <wsdl:operation name="Login">
       <soap12:operation soapAction="http://tempuri.org/InterfaceServerChatService/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <soap12:operation soapAction="http://tempuri.org/InterfaceServerChatService/LogOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <soap12:operation soapAction="http://tempuri.org/InterfaceServerChatService/SendMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFriend">
+      <soap12:operation soapAction="http://tempuri.org/InterfaceServerChatService/AddFriend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFriend">
+      <soap12:operation soapAction="http://tempuri.org/InterfaceServerChatService/RemoveFriend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageHistory">
+      <soap12:operation soapAction="http://tempuri.org/InterfaceServerChatService/GetMessageHistory" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

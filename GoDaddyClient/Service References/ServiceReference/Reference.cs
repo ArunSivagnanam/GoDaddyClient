@@ -23,7 +23,22 @@ namespace GoDaddyClient.ServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string nameField;
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string firstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string passwordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int statusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string userNameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -36,17 +51,81 @@ namespace GoDaddyClient.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string name {
+        public int ID {
             get {
-                return this.nameField;
+                return this.IDField;
             }
             set {
-                if ((object.ReferenceEquals(this.nameField, value) != true)) {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("name");
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
                 }
             }
-            
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string firstName {
+            get {
+                return this.firstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.firstNameField, value) != true)) {
+                    this.firstNameField = value;
+                    this.RaisePropertyChanged("firstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lastName {
+            get {
+                return this.lastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lastNameField, value) != true)) {
+                    this.lastNameField = value;
+                    this.RaisePropertyChanged("lastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string password {
+            get {
+                return this.passwordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.passwordField, value) != true)) {
+                    this.passwordField = value;
+                    this.RaisePropertyChanged("password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int status {
+            get {
+                return this.statusField;
+            }
+            set {
+                if ((this.statusField.Equals(value) != true)) {
+                    this.statusField = value;
+                    this.RaisePropertyChanged("status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string userName {
+            get {
+                return this.userNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.userNameField, value) != true)) {
+                    this.userNameField = value;
+                    this.RaisePropertyChanged("userName");
+                }
+            }
         }
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -64,16 +143,46 @@ namespace GoDaddyClient.ServiceReference {
     public interface InterfaceServerChatService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/Register", ReplyAction="http://tempuri.org/InterfaceServerChatService/RegisterResponse")]
-        string Register(GoDaddyClient.ServiceReference.User username);
+        string Register(GoDaddyClient.ServiceReference.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/Register", ReplyAction="http://tempuri.org/InterfaceServerChatService/RegisterResponse")]
-        System.Threading.Tasks.Task<string> RegisterAsync(GoDaddyClient.ServiceReference.User username);
+        System.Threading.Tasks.Task<string> RegisterAsync(GoDaddyClient.ServiceReference.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/Login", ReplyAction="http://tempuri.org/InterfaceServerChatService/LoginResponse")]
-        string Login(GoDaddyClient.ServiceReference.User username);
+        GoDaddyClient.ServiceReference.User Login(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/Login", ReplyAction="http://tempuri.org/InterfaceServerChatService/LoginResponse")]
-        System.Threading.Tasks.Task<string> LoginAsync(GoDaddyClient.ServiceReference.User username);
+        System.Threading.Tasks.Task<GoDaddyClient.ServiceReference.User> LoginAsync(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/LogOut", ReplyAction="http://tempuri.org/InterfaceServerChatService/LogOutResponse")]
+        string LogOut(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/LogOut", ReplyAction="http://tempuri.org/InterfaceServerChatService/LogOutResponse")]
+        System.Threading.Tasks.Task<string> LogOutAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/SendMessage", ReplyAction="http://tempuri.org/InterfaceServerChatService/SendMessageResponse")]
+        string SendMessage(string sender, string reciever, string message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/SendMessage", ReplyAction="http://tempuri.org/InterfaceServerChatService/SendMessageResponse")]
+        System.Threading.Tasks.Task<string> SendMessageAsync(string sender, string reciever, string message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/AddFriend", ReplyAction="http://tempuri.org/InterfaceServerChatService/AddFriendResponse")]
+        string AddFriend(string user, string friend);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/AddFriend", ReplyAction="http://tempuri.org/InterfaceServerChatService/AddFriendResponse")]
+        System.Threading.Tasks.Task<string> AddFriendAsync(string user, string friend);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/RemoveFriend", ReplyAction="http://tempuri.org/InterfaceServerChatService/RemoveFriendResponse")]
+        string RemoveFriend(string user, string friend);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/RemoveFriend", ReplyAction="http://tempuri.org/InterfaceServerChatService/RemoveFriendResponse")]
+        System.Threading.Tasks.Task<string> RemoveFriendAsync(string user, string friend);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/GetMessageHistory", ReplyAction="http://tempuri.org/InterfaceServerChatService/GetMessageHistoryResponse")]
+        string GetMessageHistory(string user, string friend);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/GetMessageHistory", ReplyAction="http://tempuri.org/InterfaceServerChatService/GetMessageHistoryResponse")]
+        System.Threading.Tasks.Task<string> GetMessageHistoryAsync(string user, string friend);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -111,20 +220,60 @@ namespace GoDaddyClient.ServiceReference {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public string Register(GoDaddyClient.ServiceReference.User username) {
-            return base.Channel.Register(username);
+        public string Register(GoDaddyClient.ServiceReference.User user) {
+            return base.Channel.Register(user);
         }
         
-        public System.Threading.Tasks.Task<string> RegisterAsync(GoDaddyClient.ServiceReference.User username) {
-            return base.Channel.RegisterAsync(username);
+        public System.Threading.Tasks.Task<string> RegisterAsync(GoDaddyClient.ServiceReference.User user) {
+            return base.Channel.RegisterAsync(user);
         }
         
-        public string Login(GoDaddyClient.ServiceReference.User username) {
-            return base.Channel.Login(username);
+        public GoDaddyClient.ServiceReference.User Login(string username, string password) {
+            return base.Channel.Login(username, password);
         }
         
-        public System.Threading.Tasks.Task<string> LoginAsync(GoDaddyClient.ServiceReference.User username) {
-            return base.Channel.LoginAsync(username);
+        public System.Threading.Tasks.Task<GoDaddyClient.ServiceReference.User> LoginAsync(string username, string password) {
+            return base.Channel.LoginAsync(username, password);
+        }
+        
+        public string LogOut(string username) {
+            return base.Channel.LogOut(username);
+        }
+        
+        public System.Threading.Tasks.Task<string> LogOutAsync(string username) {
+            return base.Channel.LogOutAsync(username);
+        }
+        
+        public string SendMessage(string sender, string reciever, string message) {
+            return base.Channel.SendMessage(sender, reciever, message);
+        }
+        
+        public System.Threading.Tasks.Task<string> SendMessageAsync(string sender, string reciever, string message) {
+            return base.Channel.SendMessageAsync(sender, reciever, message);
+        }
+        
+        public string AddFriend(string user, string friend) {
+            return base.Channel.AddFriend(user, friend);
+        }
+        
+        public System.Threading.Tasks.Task<string> AddFriendAsync(string user, string friend) {
+            return base.Channel.AddFriendAsync(user, friend);
+        }
+        
+        public string RemoveFriend(string user, string friend) {
+            return base.Channel.RemoveFriend(user, friend);
+        }
+        
+        public System.Threading.Tasks.Task<string> RemoveFriendAsync(string user, string friend) {
+            return base.Channel.RemoveFriendAsync(user, friend);
+        }
+        
+        public string GetMessageHistory(string user, string friend) {
+            return base.Channel.GetMessageHistory(user, friend);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetMessageHistoryAsync(string user, string friend) {
+            return base.Channel.GetMessageHistoryAsync(user, friend);
         }
     }
 }
