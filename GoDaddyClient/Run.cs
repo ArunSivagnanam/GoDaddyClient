@@ -17,7 +17,7 @@ namespace GoDaddyClient
             Client client = new Client();
 
 
-            // REGISTER TEST
+            // REGISTER TEST 
 
             User u = new User()
             {
