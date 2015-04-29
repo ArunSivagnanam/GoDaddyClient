@@ -44,9 +44,10 @@ namespace GoDaddyClient
         }
 
 
-        public void sendMessage(String username, String message)
+        public string sendMessage(String recieverName, String message)
         {
-
+            string response = serverProxy.SendMessage(currentUser.userName, recieverName, message);
+            return response;
         }
 
         public String test()
@@ -61,7 +62,7 @@ namespace GoDaddyClient
 
         public void RecievMessage(String message)
         {
-                Console.Write(message);
+                Console.WriteLine("Received message : "+message);
         }
 
         public void RecieveFriendList(User[] friends)
@@ -80,7 +81,7 @@ namespace GoDaddyClient
         public void UpdateFriendLits(User user)
         {
                 Console.WriteLine("User is online now : " + user.firstName);
-                friendsList.Add(u);
+                friendsList.Add(user);
 
         }
         
