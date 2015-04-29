@@ -46,7 +46,14 @@ namespace GoDaddyClient
 
         public string sendMessage(String recieverName, String message)
         {
-            string response = serverProxy.SendMessage(currentUser.userName, recieverName, message);
+            Message m = new Message()
+            {
+                senderUserName = currentUser.userName,
+                receiverUserName = recieverName,
+                sendMessageTime = DateTime.Now,
+                message = message
+            };
+            string response = serverProxy.SendMessage(m);
             return response;
         }
 

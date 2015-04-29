@@ -45,9 +45,12 @@ namespace GoDaddyClient
             {
                 Console.WriteLine("Login test: Failed");
             }
-          
 
+            // SEND MESSAGE TEST
+            Console.WriteLine("Send message test: ");
 
+            string response = client.sendMessage("Peter", "haaaai peeeeeter!!");
+            Console.WriteLine("Sending message: /n"+response);
     
             // finished
             

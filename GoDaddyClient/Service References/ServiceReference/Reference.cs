@@ -138,6 +138,99 @@ namespace GoDaddyClient.ServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Message", Namespace="http://schemas.datacontract.org/2004/07/GoDaddyChatService")]
+    [System.SerializableAttribute()]
+    public partial class Message : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string messageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string receiverUserNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> sendMessageTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string senderUserNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string message {
+            get {
+                return this.messageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.messageField, value) != true)) {
+                    this.messageField = value;
+                    this.RaisePropertyChanged("message");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string receiverUserName {
+            get {
+                return this.receiverUserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.receiverUserNameField, value) != true)) {
+                    this.receiverUserNameField = value;
+                    this.RaisePropertyChanged("receiverUserName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> sendMessageTime {
+            get {
+                return this.sendMessageTimeField;
+            }
+            set {
+                if ((this.sendMessageTimeField.Equals(value) != true)) {
+                    this.sendMessageTimeField = value;
+                    this.RaisePropertyChanged("sendMessageTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string senderUserName {
+            get {
+                return this.senderUserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.senderUserNameField, value) != true)) {
+                    this.senderUserNameField = value;
+                    this.RaisePropertyChanged("senderUserName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.InterfaceServerChatService", CallbackContract=typeof(GoDaddyClient.ServiceReference.InterfaceServerChatServiceCallback))]
     public interface InterfaceServerChatService {
@@ -161,10 +254,10 @@ namespace GoDaddyClient.ServiceReference {
         System.Threading.Tasks.Task<string> LogOutAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/SendMessage", ReplyAction="http://tempuri.org/InterfaceServerChatService/SendMessageResponse")]
-        string SendMessage(string sender, string reciever, string message);
+        string SendMessage(GoDaddyClient.ServiceReference.Message m);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/SendMessage", ReplyAction="http://tempuri.org/InterfaceServerChatService/SendMessageResponse")]
-        System.Threading.Tasks.Task<string> SendMessageAsync(string sender, string reciever, string message);
+        System.Threading.Tasks.Task<string> SendMessageAsync(GoDaddyClient.ServiceReference.Message m);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/AddFriend", ReplyAction="http://tempuri.org/InterfaceServerChatService/AddFriendResponse")]
         string AddFriend(string user, string friend);
@@ -250,12 +343,12 @@ namespace GoDaddyClient.ServiceReference {
             return base.Channel.LogOutAsync(username);
         }
         
-        public string SendMessage(string sender, string reciever, string message) {
-            return base.Channel.SendMessage(sender, reciever, message);
+        public string SendMessage(GoDaddyClient.ServiceReference.Message m) {
+            return base.Channel.SendMessage(m);
         }
         
-        public System.Threading.Tasks.Task<string> SendMessageAsync(string sender, string reciever, string message) {
-            return base.Channel.SendMessageAsync(sender, reciever, message);
+        public System.Threading.Tasks.Task<string> SendMessageAsync(GoDaddyClient.ServiceReference.Message m) {
+            return base.Channel.SendMessageAsync(m);
         }
         
         public string AddFriend(string user, string friend) {

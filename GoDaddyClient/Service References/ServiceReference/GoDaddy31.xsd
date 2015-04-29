@@ -47,9 +47,7 @@
   <xs:element name="SendMessage">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="sender" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="reciever" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/GoDaddyChatService" minOccurs="0" name="m" nillable="true" type="q3:Message" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -120,7 +118,7 @@
   <xs:element name="RecieveFriendList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/GoDaddyChatService" minOccurs="0" name="friends" nillable="true" type="q3:ArrayOfUser" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/GoDaddyChatService" minOccurs="0" name="friends" nillable="true" type="q4:ArrayOfUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -132,7 +130,7 @@
   <xs:element name="UpdateFriendLits">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/GoDaddyChatService" minOccurs="0" name="user" nillable="true" type="q4:User" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/GoDaddyChatService" minOccurs="0" name="user" nillable="true" type="q5:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
