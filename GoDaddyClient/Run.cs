@@ -28,13 +28,30 @@ namespace GoDaddyClient
                 status = 1
             };
 
-            Console.Write("\nRegister test: ");
-            Console.Write(client.register(u));
+            Console.WriteLine("Register test: ");
+            Console.WriteLine(client.register(u));
 
 
-            Console.Write(client.test());
+            // LOGIN TEST
 
-            Console.Write("\nMain finished");
+            Console.WriteLine("Login test: ");
+
+            Boolean test = client.login("Hans","1234");
+            if (test)
+            {
+                Console.WriteLine("Login test: Success");
+            }
+            else
+            {
+                Console.WriteLine("Login test: Failed");
+            }
+          
+
+
+    
+            // finished
+            
+            Console.WriteLine("\nMain finished");
             Console.Read();
             
 

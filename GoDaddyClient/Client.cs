@@ -16,7 +16,6 @@ namespace GoDaddyClient
 
         User currentUser;
 
-
         public Client()
         {
             serverProxy = new InterfaceServerChatServiceClient(new InstanceContext(this));
@@ -24,14 +23,16 @@ namespace GoDaddyClient
 
         public Boolean login(String username, String password)
         {
-            return false;
+
+            currentUser = serverProxy.Login(username, password);
+
+            return (currentUser != null);
         }
 
         public Boolean logOut()
         {
             return false;
         }
-
 
         public string register(User user)
         {
@@ -61,7 +62,22 @@ namespace GoDaddyClient
                 Console.Write(message);
         }
 
-        
+        public void RecieveFriendList(User[] friends)
+        {
+            Console.WriteLine("recieved friends = "+friends.Length);
 
+            foreach (User u in friends)
+            {
+                Console.WriteLine("Name : "+u.firstName);
+                Console.WriteLine("Status: "+u.status);
+            }
+        }
+
+        public void UpdateFriendLits(User user)
+        {
+                Console.WriteLine("User is online now : " + user.firstName);
+
+        }
+        
     }
 }

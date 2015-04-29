@@ -63,6 +63,18 @@
   <wsdl:message name="InterfaceServerChatService_RecievMessage_InputCallbackMessage">
     <wsdl:part name="parameters" element="tns:RecievMessageResponse" />
   </wsdl:message>
+  <wsdl:message name="InterfaceServerChatService_RecieveFriendList_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RecieveFriendList" />
+  </wsdl:message>
+  <wsdl:message name="InterfaceServerChatService_RecieveFriendList_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:RecieveFriendListResponse" />
+  </wsdl:message>
+  <wsdl:message name="InterfaceServerChatService_UpdateFriendLits_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFriendLits" />
+  </wsdl:message>
+  <wsdl:message name="InterfaceServerChatService_UpdateFriendLits_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFriendLitsResponse" />
+  </wsdl:message>
   <wsdl:portType name="InterfaceServerChatService">
     <wsdl:operation name="Register">
       <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/Register" message="tns:InterfaceServerChatService_Register_InputMessage" />
@@ -95,6 +107,14 @@
     <wsdl:operation name="RecievMessage">
       <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/RecievMessage" message="tns:InterfaceServerChatService_RecievMessage_OutputCallbackMessage" />
       <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/RecievMessageResponse" message="tns:InterfaceServerChatService_RecievMessage_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecieveFriendList">
+      <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/RecieveFriendList" message="tns:InterfaceServerChatService_RecieveFriendList_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/RecieveFriendListResponse" message="tns:InterfaceServerChatService_RecieveFriendList_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFriendLits">
+      <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/UpdateFriendLits" message="tns:InterfaceServerChatService_UpdateFriendLits_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/UpdateFriendLitsResponse" message="tns:InterfaceServerChatService_UpdateFriendLits_InputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_InterfaceServerChatService" type="tns:InterfaceServerChatService">
@@ -165,6 +185,24 @@
     </wsdl:operation>
     <wsdl:operation name="RecievMessage">
       <soap12:operation soapAction="http://tempuri.org/InterfaceServerChatService/RecievMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecieveFriendList">
+      <soap12:operation soapAction="http://tempuri.org/InterfaceServerChatService/RecieveFriendList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFriendLits">
+      <soap12:operation soapAction="http://tempuri.org/InterfaceServerChatService/UpdateFriendLits" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

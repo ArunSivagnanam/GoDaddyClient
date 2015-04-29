@@ -190,6 +190,12 @@ namespace GoDaddyClient.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/RecievMessage", ReplyAction="http://tempuri.org/InterfaceServerChatService/RecievMessageResponse")]
         void RecievMessage(string message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/RecieveFriendList", ReplyAction="http://tempuri.org/InterfaceServerChatService/RecieveFriendListResponse")]
+        void RecieveFriendList(GoDaddyClient.ServiceReference.User[] friends);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/UpdateFriendLits", ReplyAction="http://tempuri.org/InterfaceServerChatService/UpdateFriendLitsResponse")]
+        void UpdateFriendLits(GoDaddyClient.ServiceReference.User user);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
