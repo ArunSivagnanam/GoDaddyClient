@@ -14,13 +14,16 @@ namespace GoDaddyClient
 
         ServiceReference.InterfaceServerChatServiceClient serverProxy;
 
-        User currentUser;
-        List<User> friendsList; 
+        public User currentUser;
+        public List<User> friendsList;
+        public List<User> friendsToAccept; // pending friends
+
 
         public Client()
         {
             serverProxy = new InterfaceServerChatServiceClient(new InstanceContext(this));
             friendsList = new List<User>();
+            friendsToAccept = new List<User>();
         }
 
         public Boolean login(String username, String password)
@@ -57,14 +60,43 @@ namespace GoDaddyClient
             return response;
         }
 
-        public String test()
-        {
-           // User u = new User();
-           // u.userName = "magic mike";
-           // return serverProxy.Register(u);
-            return null;
+        public void RecieveFriendList()
+        { // kaldes kun en gang efter login, herefter opdatere callback metoden lsiten
+
+            friendsList = (serverProxy.ReceiveFriendList(currentUser.userName)).OfType<User>().ToList(); // this isn't going to be fast.
+            Console.WriteLine("recieved friends = " + friendsList.Count);
+
+            foreach (User u in friendsList)
+            {
+                Console.WriteLine("Name : " + u.firstName);
+                Console.WriteLine("Status: " + u.status);
+            }
         }
-         
+
+        public void ReciveFriendsToAccept()
+        { // Kaldes kun en gang efter login, herefter updateres listen af callback metoder
+            friendsToAccept = (serverProxy.ReceiveFriendsToAccept(currentUser.userName)).OfType<User>().ToList();
+
+            Console.WriteLine("recieved friends to accept = " + friendsToAccept.Count);
+
+            foreach (User u in friendsList)
+            {
+                Console.WriteLine("Name : " + u.firstName);
+                Console.WriteLine("Status: " + u.status);
+            }
+        }
+
+
+        public string AddFriend(string friendUsername)
+        {
+            return serverProxy.AddFriend(currentUser.userName,friendUsername);
+        }
+
+        public string AcceptFriend(string requesterFriend)
+        {
+            return serverProxy.AcceptFriend(requesterFriend, currentUser.userName);
+        }
+
         //** CALL BACK METHODS **//
 
         public void RecievMessage(String message)
@@ -72,25 +104,22 @@ namespace GoDaddyClient
                 Console.WriteLine("Received message : "+message);
         }
 
-        public void RecieveFriendList(User[] friends)
-        {
-
-            Console.WriteLine("recieved friends = "+friends.Length);
-
-            foreach (User u in friends)
-            {
-                Console.WriteLine("Name : "+u.firstName);
-                Console.WriteLine("Status: "+u.status);
-                friendsList.Add(u);
-            }
-        }
-
-        public void UpdateFriendLits(User user)
+       
+        public void UpdateFriendList(User user)
         {
                 Console.WriteLine("User is online now : " + user.firstName);
                 friendsList.Add(user);
-
         }
+
+        public void UpdateFriendsToAcceptList(User user)
+        {
+            friendsToAccept.Add(user);
+        }
+
+       public void removeFromPendingList(User user)
+       {
+           friendsToAccept.Remove(user);
+       }       
         
     }
 }
