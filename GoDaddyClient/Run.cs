@@ -12,7 +12,60 @@ namespace GoDaddyClient
 
         public static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Command stage");
+            Console.WriteLine("Command choice - 'Login', 'SendMessage' 'Register'");
+            string command = Console.ReadLine();
+            Client client = new Client();
 
+            while (true)
+            {
+                switch (command) {
+ 
+
+                case "Login":
+                Console.WriteLine("Enter Username:");
+                string Lusername = Console.ReadLine();
+                Console.WriteLine("Enter password:");
+                string Lpassword = Console.ReadLine();
+                client.login(Lusername, Lpassword);
+                Console.WriteLine("Login Success");
+                break;
+
+                case "SendMessage":
+                Console.WriteLine("Enter user - to send message to:");
+                string Muser = Console.ReadLine();
+                Console.WriteLine("Write message to send:");
+                string Mmessage = Console.ReadLine();
+                client.sendMessage(Muser, Mmessage);
+                Console.WriteLine("SendMessage Success");
+                break;
+
+
+                case "Register":              
+                Console.WriteLine("Enter Username:");
+                string RuserName = Console.ReadLine();
+
+                Console.WriteLine("Enter Password:");
+                string rPassword = Console.ReadLine();
+
+                Console.WriteLine("Enter Firstname:");
+                string rFirstName = Console.ReadLine();
+
+                Console.WriteLine("Enter Lastname:");
+                string rLastName = Console.ReadLine();
+
+                User u = new User()
+                {
+                    userName = RuserName,
+                    password = rPassword,
+                    firstName = rFirstName,
+                    lastName = rLastName,
+                };
+                client.register(u);
+                Console.WriteLine("Registration Success");
+                break;
+            }
+            }
             //test();
             
 
