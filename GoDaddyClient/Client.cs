@@ -17,7 +17,7 @@ namespace GoDaddyClient
 
         public User currentUser;
         public List<User> friendsList;
-        public List<User> friendsToAccept; // pending friendsd
+        public List<User> friendsToAccept; // pending friendsdd
 
 
         public Client()
