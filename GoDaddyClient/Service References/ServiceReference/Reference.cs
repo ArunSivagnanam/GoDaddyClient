@@ -290,10 +290,10 @@ namespace GoDaddyClient.ServiceReference {
         System.Threading.Tasks.Task<string> RemoveFriendAsync(string user, string friend);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/GetMessageHistory", ReplyAction="http://tempuri.org/InterfaceServerChatService/GetMessageHistoryResponse")]
-        string GetMessageHistory(string user, string friend);
+        GoDaddyClient.ServiceReference.Message[] GetMessageHistory(string user, string friend);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/GetMessageHistory", ReplyAction="http://tempuri.org/InterfaceServerChatService/GetMessageHistoryResponse")]
-        System.Threading.Tasks.Task<string> GetMessageHistoryAsync(string user, string friend);
+        System.Threading.Tasks.Task<GoDaddyClient.ServiceReference.Message[]> GetMessageHistoryAsync(string user, string friend);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -412,11 +412,11 @@ namespace GoDaddyClient.ServiceReference {
             return base.Channel.RemoveFriendAsync(user, friend);
         }
         
-        public string GetMessageHistory(string user, string friend) {
+        public GoDaddyClient.ServiceReference.Message[] GetMessageHistory(string user, string friend) {
             return base.Channel.GetMessageHistory(user, friend);
         }
         
-        public System.Threading.Tasks.Task<string> GetMessageHistoryAsync(string user, string friend) {
+        public System.Threading.Tasks.Task<GoDaddyClient.ServiceReference.Message[]> GetMessageHistoryAsync(string user, string friend) {
             return base.Channel.GetMessageHistoryAsync(user, friend);
         }
     }

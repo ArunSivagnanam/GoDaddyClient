@@ -12,137 +12,150 @@ namespace GoDaddyClient
 
         public static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Command stage");
-            Console.WriteLine("Command choice - 'Login', 'SendMessage' 'Register'");
-            string command = Console.ReadLine();
+            
             Client client = new Client();
-
+          
             while (true)
             {
+                Console.WriteLine("Welcome to Command GoDaddy Chat");
+                Console.WriteLine(" 'Register', 'Login', 'LogOut', 'AddFriend', 'ViewFriendsToAccept',\n 'AcceptFirend', 'SendMessage', GetMessageHistory");
+                string command = Console.ReadLine();
+                
                 switch (command) {
- 
 
-                case "Login":
-                Console.WriteLine("Enter Username:");
-                string Lusername = Console.ReadLine();
-                Console.WriteLine("Enter password:");
-                string Lpassword = Console.ReadLine();
-                client.login(Lusername, Lpassword);
-                Console.WriteLine("Login Success");
-                break;
+                    case "Login":
+                        login(client);
+                        break;
 
-                case "SendMessage":
-                Console.WriteLine("Enter user - to send message to:");
-                string Muser = Console.ReadLine();
-                Console.WriteLine("Write message to send:");
-                string Mmessage = Console.ReadLine();
-                client.sendMessage(Muser, Mmessage);
-                Console.WriteLine("SendMessage Success");
-                break;
+                    case "LogOut":
+                        logOut(client);
+                        break;
 
+                    case "Register":              
+                        register(client);
+                        break;
 
-                case "Register":              
-                Console.WriteLine("Enter Username:");
-                string RuserName = Console.ReadLine();
+                    case "AddFriend":
+                        AddFriend(client);
+                        break;
 
-                Console.WriteLine("Enter Password:");
-                string rPassword = Console.ReadLine();
+                    case "ViewFriendsToAccept":
+                        client.ReciveFriendsToAccept();
+                        break;
 
-                Console.WriteLine("Enter Firstname:");
-                string rFirstName = Console.ReadLine();
+                    case "AcceptFirend":
+                        AcceptFirend(client);
+                        break;
 
-                Console.WriteLine("Enter Lastname:");
-                string rLastName = Console.ReadLine();
+                    case "SendMessage":
+                        sendMessage(client);
+                        break;
 
-                User u = new User()
-                {
-                    userName = RuserName,
-                    password = rPassword,
-                    firstName = rFirstName,
-                    lastName = rLastName,
-                };
-                client.register(u);
-                Console.WriteLine("Registration Success");
-                break;
+                    case "GetMessageHistory":
+                        printMessageHist(client);
+                        break;
+           
+                }
+
             }
-            }
-            //test();
-            
-
-
+           
         }
 
 
-        public static void test()
+        public static void register(Client client)
         {
-            Client client = new Client();
+            Console.WriteLine("Enter Username:");
+            string userName = Console.ReadLine();
 
+            Console.WriteLine("Enter Password:");
+            string password = Console.ReadLine();
 
-            // REGISTER TEST 
+            Console.WriteLine("Enter Firstname:");
+            string firstName = Console.ReadLine();
+
+            Console.WriteLine("Enter Lastname:");
+            string lastName = Console.ReadLine();
 
             User u = new User()
             {
-                firstName = "Hans",
-                lastName = "Hansen",
-                userName = "hh",
-                password = "1234",
-                status = 1
+                userName = userName,
+                password = password,
+                firstName = firstName,
+                lastName = lastName,
             };
 
-            Console.WriteLine("Register test: ");
-            Console.WriteLine(client.register(u));
+            client.register(u);
+            Console.WriteLine("Registration Success");
+        }
 
+        public static void login(Client client)
+        {
+            Console.WriteLine("Enter Username:");
+            string username = Console.ReadLine();
+            Console.WriteLine("Enter password:");
+            string password = Console.ReadLine();
 
-            // LOGIN TEST
-
-            Console.Write("Login test: ");
-
-            Boolean test = client.login("Peter", "1234");
-            if (test)
+            if (client.login(username, password))
             {
-                Console.WriteLine("Success");
+                client.RecieveFriendList();
+                client.ReciveFriendsToAccept();
+                Console.WriteLine("Login Success");
+                Console.WriteLine("Logged in as " + client.currentUser.userName);
             }
             else
             {
-                Console.WriteLine("Failed");
+                Console.WriteLine("Login failed, register or check username and password");
+            }
+           
+        }
+
+        public static void logOut(Client client)
+        {
+            client.logOut();
+            Console.WriteLine("You are now logged out");
+
+        }
+
+        public static void AddFriend(Client client){
+              
+            Console.WriteLine("Enter friend username");
+            string friendUsername = Console.ReadLine();
+
+            client.AddFriend(friendUsername);
+            Console.WriteLine("Friend request sent"); 
+        }
+
+        public static void AcceptFirend(Client client)
+        {
+
+            Console.WriteLine("Enter friend username");
+            string friendUsername = Console.ReadLine();
+
+            client.AcceptFriend(friendUsername);
+            Console.WriteLine("Friend accepted");
+        }
+
+        public static void sendMessage(Client client)
+        {
+            Console.WriteLine("Enter user - to send message to:");
+            string user = Console.ReadLine();
+            Console.WriteLine("Write message to send:");
+            string message = Console.ReadLine();
+            string response = client.sendMessage(user, message);
+            Console.WriteLine(response);
+        }
+
+        public static void printMessageHist(Client client){
+
+            Console.WriteLine("Enter user - to get hist from:");
+            string fiendUsername = Console.ReadLine();
+            List<Message> messageList = client.GetMessageHistory(fiendUsername);
+
+            foreach (Message m in messageList)
+            {
+                Console.WriteLine("Receiver: "+m.receiverUserName+" Sender: "+m.senderUserName+" Send time: "+m.sendMessageTime+" Message: "+m.message);
             }
 
-
-            // RECIEVE FRIENDS TEST
-            Console.WriteLine("Recieve friends test: ");
-
-            client.RecieveFriendList();
-
-
-            // SEND MESSAGE TEST
-            //Console.WriteLine("Send message test: ");
-
-            //string response = client.sendMessage("Peter", "haaaai peeeeeter!!");
-            //Console.WriteLine("Sending message: /n" + response);
-
-
-            // ADD FRIEND TEST
-            //Console.WriteLine("Add friend test: ");
-            //String addFriendResponse = client.AddFriend("Peter");
-            //Console.WriteLine(addFriendResponse);
-
-            // RECIEVE FRIENDS TO ACCEPT TEST
-            
-            Console.WriteLine("Receive friends to accept test: ");
-            client.ReciveFriendsToAccept();
-
-            // ACCEPT FIRNED TEST
-            Console.WriteLine("Accept friend test: ");
-            string result = client.AcceptFriend("Hans");
-            Console.WriteLine(result);
-            
-            
-            
-            
-            // finished
-
-            Console.WriteLine("\nMain finished");
-            Console.Read();
         }
         
     }

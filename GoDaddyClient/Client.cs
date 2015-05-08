@@ -9,9 +9,10 @@ using GoDaddyClient.ServiceReference;
 namespace GoDaddyClient
 {
 
-    class Client : InterfaceServerChatServiceCallback
+    public class Client : InterfaceServerChatServiceCallback
     {
 
+        public event EventHandler<MessageEvent> msgEvent;
         ServiceReference.InterfaceServerChatServiceClient serverProxy;
 
         public User currentUser;
@@ -60,6 +61,11 @@ namespace GoDaddyClient
             return response;
         }
 
+        public List<Message> GetMessageHistory(string friendUsername)
+        {
+            return (serverProxy.GetMessageHistory(currentUser.userName, friendUsername)).OfType<Message>().ToList();
+        }
+
         public void RecieveFriendList()
         { // kaldes kun en gang efter login, herefter opdatere callback metoden lsiten
 
@@ -101,7 +107,14 @@ namespace GoDaddyClient
 
         public void RecievMessage(String message)
         {
-                Console.WriteLine("Received message : "+message);
+
+            EventHandler<MessageEvent> handler = msgEvent;
+            if (msgEvent != null)
+            {
+                handler(this, new MessageEvent(message));
+            }
+
+            Console.WriteLine("Received message : "+message);
         }
 
        
@@ -109,6 +122,12 @@ namespace GoDaddyClient
         {
                 Console.WriteLine("User is online now : " + user.firstName);
                 friendsList.Add(user);
+        }
+
+        public void UpdateFriendListRemove(User user)
+        {
+            Console.WriteLine("User is offline: " + user.firstName);
+            friendsList.Remove(user);
         }
 
         public void UpdateFriendsToAcceptList(User user)
