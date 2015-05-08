@@ -37,6 +37,7 @@ namespace GoDaddyClient
 
         public Boolean logOut()
         {
+            serverProxy.LogOut(currentUser.userName);
             return false;
         }
 
