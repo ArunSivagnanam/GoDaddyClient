@@ -81,7 +81,7 @@ namespace GoDaddyClient
                 userName = userName,
                 password = password,
                 firstName = firstName,
-                lastName = lastName,
+                lastName = lastName
             };
 
             client.register(u);

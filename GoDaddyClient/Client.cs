@@ -143,7 +143,7 @@ namespace GoDaddyClient
                     if (u.ID == user.ID)
                     {
                         found = true;
-                        u.Status = Availability.Online;
+                        u.Status = Availability.Online;                       
                     }
                 }
                 if (!found)
@@ -157,12 +157,23 @@ namespace GoDaddyClient
         public void UpdateFriendListRemove(User user)
         {
             Console.WriteLine("User is offline: " + user.firstName);
-            friendsList.Remove(user);
+
+            foreach (User u in friendsList)
+            {
+                if (u.ID == user.ID)
+                {
+                    u.Status = Availability.Offline;
+                }
+            }
+
+            ThrowUpdateFriendListEvent(user);
         }
 
         public void UpdateFriendsToAcceptList(User user)
         {
             friendsToAccept.Add(user);
+            ThrowUpdateFriendListEvent(user);
+
         }
 
        public void removeFromPendingList(User user)
