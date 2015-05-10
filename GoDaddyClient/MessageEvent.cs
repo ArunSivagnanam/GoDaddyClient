@@ -8,7 +8,7 @@ namespace GoDaddyClient
 {
     public class MessageEvent : EventArgs
     {
-        //privvate Message msg { get;};
+        //privvate Message msg { get;};gh
         public string message { get; private set; }
         public MessageEvent(string message)
         {
