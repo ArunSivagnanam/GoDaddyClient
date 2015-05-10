@@ -3,14 +3,22 @@
   <xs:complexType name="User">
     <xs:sequence>
       <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" type="tns:Availability" />
       <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="status" type="xs:int" />
       <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:simpleType name="Availability">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Online" />
+      <xs:enumeration value="Offline" />
+      <xs:enumeration value="FriendRequest" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Availability" nillable="true" type="tns:Availability" />
   <xs:complexType name="ArrayOfUser">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />

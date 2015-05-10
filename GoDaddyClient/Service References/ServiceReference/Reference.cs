@@ -26,6 +26,9 @@ namespace GoDaddyClient.ServiceReference {
         private int IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private GoDaddyClient.ServiceReference.Availability StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string firstNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -33,9 +36,6 @@ namespace GoDaddyClient.ServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string passwordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int statusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string userNameField;
@@ -59,6 +59,19 @@ namespace GoDaddyClient.ServiceReference {
                 if ((this.IDField.Equals(value) != true)) {
                     this.IDField = value;
                     this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public GoDaddyClient.ServiceReference.Availability Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
                 }
             }
         }
@@ -103,19 +116,6 @@ namespace GoDaddyClient.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int status {
-            get {
-                return this.statusField;
-            }
-            set {
-                if ((this.statusField.Equals(value) != true)) {
-                    this.statusField = value;
-                    this.RaisePropertyChanged("status");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string userName {
             get {
                 return this.userNameField;
@@ -136,6 +136,20 @@ namespace GoDaddyClient.ServiceReference {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Availability", Namespace="http://schemas.datacontract.org/2004/07/GoDaddyChatService")]
+    public enum Availability : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Online = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Offline = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FriendRequest = 2,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -304,6 +318,9 @@ namespace GoDaddyClient.ServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/UpdateFriendList", ReplyAction="http://tempuri.org/InterfaceServerChatService/UpdateFriendListResponse")]
         void UpdateFriendList(GoDaddyClient.ServiceReference.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/UpdateFriendListRemove", ReplyAction="http://tempuri.org/InterfaceServerChatService/UpdateFriendListRemoveResponse")]
+        void UpdateFriendListRemove(GoDaddyClient.ServiceReference.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/UpdateFriendsToAcceptList", ReplyAction="http://tempuri.org/InterfaceServerChatService/UpdateFriendsToAcceptListResponse")]
         void UpdateFriendsToAcceptList(GoDaddyClient.ServiceReference.User user);

@@ -23,8 +23,7 @@ namespace GoDaddyClient
                 firstName = "Hans",
                 lastName = "Hansen",
                 userName = "hh",
-                password = "1234",
-                status = 1
+                password = "1234"
             };
 
             Console.WriteLine("Register test: ");

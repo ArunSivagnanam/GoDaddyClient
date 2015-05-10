@@ -170,10 +170,22 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateFriendsToAcceptList">
+  <xs:element name="UpdateFriendListRemove">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/GoDaddyChatService" minOccurs="0" name="user" nillable="true" type="q8:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFriendListRemoveResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFriendsToAcceptList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/GoDaddyChatService" minOccurs="0" name="user" nillable="true" type="q9:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -185,7 +197,7 @@
   <xs:element name="removeFromPendingList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/GoDaddyChatService" minOccurs="0" name="user" nillable="true" type="q9:User" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/GoDaddyChatService" minOccurs="0" name="user" nillable="true" type="q10:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

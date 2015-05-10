@@ -137,9 +137,21 @@ namespace GoDaddyClient
         public void UpdateFriendList(User user)// den nye bruger som gået online
         {
                 Console.WriteLine("User is online now : " + user.firstName);
-                friendsList.Add(user);
 
-                ThrowUpdateFriendListEvent(user);
+                bool found = false;
+                foreach(User u in friendsList){
+                    if (u.ID == user.ID)
+                    {
+                        found = true;
+                        u.Status = Availability.Online;
+                    }
+                }
+                if (!found)
+                {
+                    friendsList.Add(user);
+                }
+               
+                ThrowUpdateFriendListEvent(user); // update gui
         }
 
         public void UpdateFriendListRemove(User user)
