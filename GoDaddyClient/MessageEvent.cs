@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GoDaddyClient.ServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +10,8 @@ namespace GoDaddyClient
     public class MessageEvent : EventArgs
     {
         //privvate Message msg { get;};gh
-        public string message { get; private set; }
-        public MessageEvent(string message)
+        public Message message { get; private set; }
+        public MessageEvent(Message message)
         {
             this.message = message;
         }

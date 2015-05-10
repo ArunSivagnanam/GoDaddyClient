@@ -246,7 +246,7 @@ namespace GoDaddyClient.ServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.InterfaceServerChatService", CallbackContract=typeof(GoDaddyClient.ServiceReference.InterfaceServerChatServiceCallback))]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.InterfaceServerChatService", CallbackContract=typeof(GoDaddyClient.ServiceReference.InterfaceServerChatServiceCallback), SessionMode=System.ServiceModel.SessionMode.Required)]
     public interface InterfaceServerChatService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/Register", ReplyAction="http://tempuri.org/InterfaceServerChatService/RegisterResponse")]

@@ -9,6 +9,7 @@ using GoDaddyClient.ServiceReference;
 namespace GoDaddyClient
 {
 
+    [CallbackBehavior(ConcurrencyMode = ConcurrencyMode.Multiple)]
     public class Client : InterfaceServerChatServiceCallback
     {
 
@@ -121,7 +122,7 @@ namespace GoDaddyClient
 
         //** CALL BACK METHODS **//
 
-        public void RecievMessage(String message)
+        public void RecievMessage(Message message)
         {
 
             EventHandler<MessageEvent> handler = msgEvent;

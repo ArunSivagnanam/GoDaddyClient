@@ -105,64 +105,64 @@
   <wsdl:message name="InterfaceServerChatService_removeFromPendingList_InputCallbackMessage">
     <wsdl:part name="parameters" element="tns:removeFromPendingListResponse" />
   </wsdl:message>
-  <wsdl:portType name="InterfaceServerChatService">
-    <wsdl:operation name="Register">
+  <wsdl:portType msc:usingSession="true" name="InterfaceServerChatService">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Register">
       <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/Register" message="tns:InterfaceServerChatService_Register_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/RegisterResponse" message="tns:InterfaceServerChatService_Register_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Login">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/Login" message="tns:InterfaceServerChatService_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/LoginResponse" message="tns:InterfaceServerChatService_Login_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ReceiveFriendList">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ReceiveFriendList">
       <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/ReceiveFriendList" message="tns:InterfaceServerChatService_ReceiveFriendList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/ReceiveFriendListResponse" message="tns:InterfaceServerChatService_ReceiveFriendList_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ReceiveFriendsToAccept">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ReceiveFriendsToAccept">
       <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/ReceiveFriendsToAccept" message="tns:InterfaceServerChatService_ReceiveFriendsToAccept_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/ReceiveFriendsToAcceptResponse" message="tns:InterfaceServerChatService_ReceiveFriendsToAccept_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="LogOut">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="LogOut">
       <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/LogOut" message="tns:InterfaceServerChatService_LogOut_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/LogOutResponse" message="tns:InterfaceServerChatService_LogOut_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SendMessage">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SendMessage">
       <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/SendMessage" message="tns:InterfaceServerChatService_SendMessage_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/SendMessageResponse" message="tns:InterfaceServerChatService_SendMessage_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddFriend">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AddFriend">
       <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/AddFriend" message="tns:InterfaceServerChatService_AddFriend_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/AddFriendResponse" message="tns:InterfaceServerChatService_AddFriend_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AcceptFriend">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AcceptFriend">
       <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/AcceptFriend" message="tns:InterfaceServerChatService_AcceptFriend_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/AcceptFriendResponse" message="tns:InterfaceServerChatService_AcceptFriend_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="RemoveFriend">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="RemoveFriend">
       <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/RemoveFriend" message="tns:InterfaceServerChatService_RemoveFriend_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/RemoveFriendResponse" message="tns:InterfaceServerChatService_RemoveFriend_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetMessageHistory">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetMessageHistory">
       <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/GetMessageHistory" message="tns:InterfaceServerChatService_GetMessageHistory_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/GetMessageHistoryResponse" message="tns:InterfaceServerChatService_GetMessageHistory_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="RecievMessage">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="RecievMessage">
       <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/RecievMessage" message="tns:InterfaceServerChatService_RecievMessage_OutputCallbackMessage" />
       <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/RecievMessageResponse" message="tns:InterfaceServerChatService_RecievMessage_InputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateFriendList">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UpdateFriendList">
       <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/UpdateFriendList" message="tns:InterfaceServerChatService_UpdateFriendList_OutputCallbackMessage" />
       <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/UpdateFriendListResponse" message="tns:InterfaceServerChatService_UpdateFriendList_InputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateFriendListRemove">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UpdateFriendListRemove">
       <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/UpdateFriendListRemove" message="tns:InterfaceServerChatService_UpdateFriendListRemove_OutputCallbackMessage" />
       <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/UpdateFriendListRemoveResponse" message="tns:InterfaceServerChatService_UpdateFriendListRemove_InputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateFriendsToAcceptList">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UpdateFriendsToAcceptList">
       <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/UpdateFriendsToAcceptList" message="tns:InterfaceServerChatService_UpdateFriendsToAcceptList_OutputCallbackMessage" />
       <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/UpdateFriendsToAcceptListResponse" message="tns:InterfaceServerChatService_UpdateFriendsToAcceptList_InputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation name="removeFromPendingList">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="removeFromPendingList">
       <wsdl:output wsaw:Action="http://tempuri.org/InterfaceServerChatService/removeFromPendingList" message="tns:InterfaceServerChatService_removeFromPendingList_OutputCallbackMessage" />
       <wsdl:input wsaw:Action="http://tempuri.org/InterfaceServerChatService/removeFromPendingListResponse" message="tns:InterfaceServerChatService_removeFromPendingList_InputCallbackMessage" />
     </wsdl:operation>
