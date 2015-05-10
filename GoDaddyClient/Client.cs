@@ -13,11 +13,21 @@ namespace GoDaddyClient
     {
 
         public event EventHandler<MessageEvent> msgEvent;
+        public event EventHandler<FriendListEvent> friendListEvent;
         ServiceReference.InterfaceServerChatServiceClient serverProxy;
 
         public User currentUser;
         public List<User> friendsList;
         public List<User> friendsToAccept; // pending friendsdd
+
+
+        private void ThrowUpdateFriendListEvent(User u){
+
+            EventHandler<FriendListEvent> handler = friendListEvent;
+            if(friendListEvent != null) {
+                handler(this, new FriendListEvent(u));
+            }
+        }
 
 
         public Client()
@@ -67,30 +77,35 @@ namespace GoDaddyClient
             return (serverProxy.GetMessageHistory(currentUser.userName, friendUsername)).OfType<Message>().ToList();
         }
 
-        public void RecieveFriendList()
+        public List<User> RecieveFriendList()
         { // kaldes kun en gang efter login, herefter opdatere callback metoden lsiten
 
             friendsList = (serverProxy.ReceiveFriendList(currentUser.userName)).OfType<User>().ToList(); // this isn't going to be fast.
-            Console.WriteLine("recieved friends = " + friendsList.Count);
+            return friendsList;
+            //Console.WriteLine("recieved friends = " + friendsList.Count);
 
-            foreach (User u in friendsList)
-            {
-                Console.WriteLine("Name : " + u.firstName);
-                Console.WriteLine("Status: " + u.status);
-            }
+            //foreach (User u in friendsList)
+            //{
+             // Console.WriteLine("Name : " + u.firstName);
+              //Console.WriteLine("Status: " + u.status);
+            //}
         }
 
-        public void ReciveFriendsToAccept()
+        public List<User> ReciveFriendsToAccept()
         { // Kaldes kun en gang efter login, herefter updateres listen af callback metoder
             friendsToAccept = (serverProxy.ReceiveFriendsToAccept(currentUser.userName)).OfType<User>().ToList();
+            return friendsToAccept;
 
-            Console.WriteLine("recieved friends to accept = " + friendsToAccept.Count);
 
-            foreach (User u in friendsList)
-            {
-                Console.WriteLine("Name : " + u.firstName);
-                Console.WriteLine("Status: " + u.status);
-            }
+
+           // Console.WriteLine("recieved friends to accept = " + friendsToAccept.Count);
+
+            //I en liste
+           // foreach (User u in friendsList)
+           // {
+            //    Console.WriteLine("Name : " + u.firstName);
+           //     Console.WriteLine("Status: " + u.status);
+           // }
         }
 
 
@@ -119,10 +134,12 @@ namespace GoDaddyClient
         }
 
        
-        public void UpdateFriendList(User user)
+        public void UpdateFriendList(User user)// den nye bruger som gået online
         {
                 Console.WriteLine("User is online now : " + user.firstName);
                 friendsList.Add(user);
+
+                ThrowUpdateFriendListEvent(user);
         }
 
         public void UpdateFriendListRemove(User user)

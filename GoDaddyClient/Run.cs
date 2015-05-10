@@ -142,7 +142,7 @@ namespace GoDaddyClient
             Console.WriteLine("Write message to send:");
             string message = Console.ReadLine();
             string response = client.sendMessage(user, message);
-            Console.WriteLine(response);
+            Console.WriteLine("You sent: " + response);
         }
 
         public static void printMessageHist(Client client){
