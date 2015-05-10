@@ -314,7 +314,7 @@ namespace GoDaddyClient.ServiceReference {
     public interface InterfaceServerChatServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/RecievMessage", ReplyAction="http://tempuri.org/InterfaceServerChatService/RecievMessageResponse")]
-        void RecievMessage(string message);
+        void RecievMessage(GoDaddyClient.ServiceReference.Message message);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/UpdateFriendList", ReplyAction="http://tempuri.org/InterfaceServerChatService/UpdateFriendListResponse")]
         void UpdateFriendList(GoDaddyClient.ServiceReference.User user);

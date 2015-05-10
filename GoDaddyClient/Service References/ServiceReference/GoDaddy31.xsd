@@ -149,7 +149,7 @@
   <xs:element name="RecievMessage">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/GoDaddyChatService" minOccurs="0" name="message" nillable="true" type="q7:Message" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -161,7 +161,7 @@
   <xs:element name="UpdateFriendList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/GoDaddyChatService" minOccurs="0" name="user" nillable="true" type="q7:User" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/GoDaddyChatService" minOccurs="0" name="user" nillable="true" type="q8:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -173,7 +173,7 @@
   <xs:element name="UpdateFriendListRemove">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/GoDaddyChatService" minOccurs="0" name="user" nillable="true" type="q8:User" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/GoDaddyChatService" minOccurs="0" name="user" nillable="true" type="q9:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -185,7 +185,7 @@
   <xs:element name="UpdateFriendsToAcceptList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/GoDaddyChatService" minOccurs="0" name="user" nillable="true" type="q9:User" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/GoDaddyChatService" minOccurs="0" name="user" nillable="true" type="q10:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -197,7 +197,7 @@
   <xs:element name="removeFromPendingList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/GoDaddyChatService" minOccurs="0" name="user" nillable="true" type="q10:User" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/GoDaddyChatService" minOccurs="0" name="user" nillable="true" type="q11:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
