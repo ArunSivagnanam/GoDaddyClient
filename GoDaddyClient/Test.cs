@@ -61,7 +61,7 @@ namespace GoDaddyClient
             // ADD FRIEND TEST
             //Console.WriteLine("Add friend test: ");
             //String addFriendResponse = client.AddFriend("Peter");
-            //Console.WriteLine(addFriendResponse);
+            //Console.WriteLine(addFriendResponse);gf
 
             // RECIEVE FRIENDS TO ACCEPT TEST
 
@@ -70,8 +70,8 @@ namespace GoDaddyClient
 
             // ACCEPT FIRNED TEST
             Console.WriteLine("Accept friend test: ");
-            string result = client.AcceptFriend("Hans");
-            Console.WriteLine(result);
+            client.AcceptFriend("Hans");
+     
 
 
 

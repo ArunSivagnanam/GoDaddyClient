@@ -246,7 +246,7 @@ namespace GoDaddyClient.ServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.InterfaceServerChatService", CallbackContract=typeof(GoDaddyClient.ServiceReference.InterfaceServerChatServiceCallback), SessionMode=System.ServiceModel.SessionMode.Required)]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.InterfaceServerChatService", CallbackContract=typeof(GoDaddyClient.ServiceReference.InterfaceServerChatServiceCallback))]
     public interface InterfaceServerChatService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/Register", ReplyAction="http://tempuri.org/InterfaceServerChatService/RegisterResponse")]
@@ -291,11 +291,11 @@ namespace GoDaddyClient.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/AddFriend", ReplyAction="http://tempuri.org/InterfaceServerChatService/AddFriendResponse")]
         System.Threading.Tasks.Task<string> AddFriendAsync(string userName, string friendName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/AcceptFriend", ReplyAction="http://tempuri.org/InterfaceServerChatService/AcceptFriendResponse")]
-        string AcceptFriend(string requesterName, string userName);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/InterfaceServerChatService/AcceptFriend")]
+        void AcceptFriend(string requesterName, string userName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/AcceptFriend", ReplyAction="http://tempuri.org/InterfaceServerChatService/AcceptFriendResponse")]
-        System.Threading.Tasks.Task<string> AcceptFriendAsync(string requesterName, string userName);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/InterfaceServerChatService/AcceptFriend")]
+        System.Threading.Tasks.Task AcceptFriendAsync(string requesterName, string userName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InterfaceServerChatService/RemoveFriend", ReplyAction="http://tempuri.org/InterfaceServerChatService/RemoveFriendResponse")]
         string RemoveFriend(string user, string friend);
@@ -413,11 +413,11 @@ namespace GoDaddyClient.ServiceReference {
             return base.Channel.AddFriendAsync(userName, friendName);
         }
         
-        public string AcceptFriend(string requesterName, string userName) {
-            return base.Channel.AcceptFriend(requesterName, userName);
+        public void AcceptFriend(string requesterName, string userName) {
+            base.Channel.AcceptFriend(requesterName, userName);
         }
         
-        public System.Threading.Tasks.Task<string> AcceptFriendAsync(string requesterName, string userName) {
+        public System.Threading.Tasks.Task AcceptFriendAsync(string requesterName, string userName) {
             return base.Channel.AcceptFriendAsync(requesterName, userName);
         }
         

@@ -115,9 +115,9 @@ namespace GoDaddyClient
             return serverProxy.AddFriend(currentUser.userName,friendUsername);
         }
 
-        public string AcceptFriend(string requesterFriend)
+        public void AcceptFriend(string requesterFriend)
         {
-            return serverProxy.AcceptFriend(requesterFriend, currentUser.userName);
+            serverProxy.AcceptFriend(requesterFriend, currentUser.userName);
         }
 
         //** CALL BACK METHODS **//
@@ -172,6 +172,7 @@ namespace GoDaddyClient
 
         public void UpdateFriendsToAcceptList(User user)
         {
+            user.Status = Availability.FriendRequest;
             friendsToAccept.Add(user);
             ThrowUpdateFriendListEvent(user);
 
